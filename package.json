@@ -5,7 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "yarn run wasm_build && vite build",
+    "build": "yarn run wasm_build && vite build --mode production",
+    "dev_build": "yarn run wasm_build && vite build --mode development",
+    "prod_build": "yarn run wasm_build && vite build --mode production",
     "wasm_build": "node wasm.compile.js",
     "preview": "vite preview"
   },

@@ -11,6 +11,9 @@ let CallFib = ()=>{
   alert("Fib(6) is " + res);
 }
 
+const CommitHash = import.meta.env.VITE_COMMIT_HASH || "No commit hash";
+const AppName = import.meta.env.VITE_APP_NAME || "No App Name";
+const API_URL = import.meta.env.VITE_API_URL || "error!";
 </script>
 
 <template>
@@ -24,7 +27,13 @@ let CallFib = ()=>{
       <code>components/HelloWorld.vue</code> to test HMR
     </p>
   </div>
-
+  <p>
+    AppName: {{ AppName }}
+    <br/>
+    CommitHash: {{ CommitHash }}
+    <br/>
+    API_URL: {{ API_URL }}
+  </p>
   <p>
     Check out
     <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank"
