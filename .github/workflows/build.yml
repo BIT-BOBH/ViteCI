@@ -19,6 +19,11 @@ jobs:
 
       - uses: mymindstorm/setup-emsdk@v11
 
+      - uses: actions/cache@v2
+        with:
+        path: '**/node_modules'
+        key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+        
       - name: install dependencies
         run: yarn
 
