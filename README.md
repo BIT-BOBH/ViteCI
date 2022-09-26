@@ -1,6 +1,6 @@
-# ViteVueWithWasm
+# ViteCI
 
-A vite vue template with wasm, javascript obfuscation supported
+Auto build and deploy Vite+Vue project to the server
 
 # Build
 
