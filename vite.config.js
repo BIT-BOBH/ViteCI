@@ -44,7 +44,14 @@ export default ({mode}) => {
       }),
     ],
     build: {
-      assetsInlineLimit: 1024 * 1024
+      assetsInlineLimit: 1024 * 1024,
+      rollupOptions: {
+        output: {
+          entryFileNames: 'assets/bobh.encrypted.[name].[hash].js',
+          chunkFileNames: 'assets/bobh.chunk.[name].[hash].js',
+          assetFileNames: 'assets/bobh.assets.[name].[hash].[ext]',
+        }
+      }
     }
   });
 }
