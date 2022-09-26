@@ -10,6 +10,9 @@ on:
   release:
     types: released
 
+env:
+  VITE_COMMIT_HASH: ${{ GITHUB_SHA }}
+
 jobs:
   build:
     name: Build vue

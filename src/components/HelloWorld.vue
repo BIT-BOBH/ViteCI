@@ -14,6 +14,7 @@ let CallFib = ()=>{
 const CommitHash = import.meta.env.VITE_COMMIT_HASH || "No commit hash";
 const AppName = import.meta.env.VITE_APP_NAME || "No App Name";
 const API_URL = import.meta.env.VITE_API_URL || "error!";
+const BUILD_MODE = import.meta.env.VITE_BUILD_MODE;
 </script>
 
 <template>
@@ -33,6 +34,8 @@ const API_URL = import.meta.env.VITE_API_URL || "error!";
     CommitHash: {{ CommitHash }}
     <br/>
     API_URL: {{ API_URL }}
+    <br/>
+    BUILD_MODE: {{ BUILD_MODE }}
   </p>
   <p>
     Check out
