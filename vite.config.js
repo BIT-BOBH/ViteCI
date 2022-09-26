@@ -5,9 +5,18 @@ import legacy from '@vitejs/plugin-legacy'
 import { obfuscator } from 'rollup-obfuscator';
 import sd from 'silly-datetime'
 
+const getZoneTime = (offset)=> {
+  let localtime = new Date();
+  let localmesc = localtime.getTime();
+  let localOffset = localtime.getTimezoneOffset() * 60000;
+  let utc = localOffset + localmesc;
+  let calctime = utc + (3600000 * offset);
+  return new Date(calctime);
+}
+
 // https://vitejs.dev/config/
 export default ({mode}) => {
-  process.env.VITE_BUILD_TIME = sd.format(new Date(), 'YYYY-MM-DD HH:mm:ss');
+  process.env.VITE_BUILD_TIME = sd.format(getZoneTime(8), 'YYYY-MM-DD HH:mm:ss');
   return defineConfig({
     plugins: [
       vue(),
