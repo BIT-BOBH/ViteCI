@@ -32,11 +32,12 @@ jobs:
 
       - name: Deploy to the PROD server
         uses: easingthemes/ssh-deploy@main
-        SSH_PRIVATE_KEY: ${{ env.SSH_KEY }}
-        SOURCE: 'dist/'
-        REMOTE_HOST: ${{ env.SERVER_IP }}
-        REMOTE_USER: ${{ env.SERVER_USER }}
-        TARGET: ${{ env.SERVER_PROD_PATH }}
+        env:
+          SSH_PRIVATE_KEY: ${{ env.SSH_KEY }}
+          SOURCE: 'dist/'
+          REMOTE_HOST: ${{ env.SERVER_IP }}
+          REMOTE_USER: ${{ env.SERVER_USER }}
+          TARGET: ${{ env.SERVER_PROD_PATH }}
       
       - name: Upload dist
         uses: actions/upload-artifact@v2
