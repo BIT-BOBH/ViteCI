@@ -11,7 +11,7 @@ on:
     types: released
 
 env:
-  VITE_COMMIT_HASH: ${{ GITHUB_SHA }}
+  VITE_COMMIT_HASH: ${GITHUB_SHA}
 
 jobs:
   build:
