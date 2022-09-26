@@ -9,7 +9,7 @@ on:
       - develop
 
 env:
-  VITE_COMMIT_HASH: ${{ GITHUB_SHA }}
+  VITE_COMMIT_HASH: ${{ github.sha }}
 
 jobs:
   build:

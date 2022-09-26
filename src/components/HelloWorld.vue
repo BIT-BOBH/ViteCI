@@ -15,6 +15,7 @@ const CommitHash = import.meta.env.VITE_COMMIT_HASH || "No commit hash";
 const AppName = import.meta.env.VITE_APP_NAME || "No App Name";
 const API_URL = import.meta.env.VITE_API_URL || "error!";
 const BUILD_MODE = import.meta.env.VITE_BUILD_MODE;
+const BuildTime = import.meta.env.VITE_BUILD_TIME;
 </script>
 
 <template>
@@ -30,6 +31,8 @@ const BUILD_MODE = import.meta.env.VITE_BUILD_MODE;
   </div>
   <p>
     AppName: {{ AppName }}
+    <br/>
+    BuildTime: {{ BuildTime }}
     <br/>
     CommitHash: {{ CommitHash }}
     <br/>
