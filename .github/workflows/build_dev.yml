@@ -1,14 +1,12 @@
-name: Build the template
+name: Build develop branch
 
 on:
   push:
     branches:
-      - main
+      - develop
   pull_request:
     branches:
-      - main
-  release:
-    types: released
+      - develop
 
 jobs:
   build:
@@ -28,11 +26,19 @@ jobs:
         run: yarn
 
       - name: build project
-        run: yarn build
+        run: yarn dev_build
+
+      - name: Deploy to the DEV server
+        uses: easingthemes/ssh-deploy@main
+        SSH_PRIVATE_KEY: ${{ env.SSH_KEY }}
+        SOURCE: 'dist/'
+        REMOTE_HOST: ${{ env.SERVER_IP }}
+        REMOTE_USER: ${{ env.SERVER_USER }}
+        TARGET: ${{ env.SERVER_DEV_PATH }}
 
       - name: Upload dist
         uses: actions/upload-artifact@v2
         with:
-          name: dist.zip
+          name: dev_dist
           path: ./dist
           if-no-files-found: error
